@@ -1,26 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { User } from "../types";
-
-interface UsersState {
-  users: User[];
-  status: string;
-}
+import { UsersState } from "../types/user";
+import { fetchUsersApi } from "./api";
 
 const initialState: UsersState = {
   users: [],
-  status: "idle"
-}
+  status: "idle",
+};
 
-export const fetchUsers = createAsyncThunk("posts/fetch", async () => {
-  try {
-    const response = await fetch("https://jsonplaceholder.typicode.com/users");
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
-})
-
+export const fetchUsers = createAsyncThunk("users/fetch", async () => {
+  return await fetchUsersApi();
+});
 
 const usersSlice = createSlice({
   name: "users",
@@ -29,16 +18,16 @@ const usersSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchUsers.pending, (state) => {
-        state.status = "loading"
+        state.status = "loading";
       })
       .addCase(fetchUsers.fulfilled, (state, action) => {
-        state.status = "succeeded"
-        state.users = action.payload
+        state.status = "succeeded";
+        state.users = action.payload;
       })
       .addCase(fetchUsers.rejected, (state) => {
-        state.status = "failed"
-      })
-  }
-})
+        state.status = "failed";
+      });
+  },
+});
 
-export default usersSlice.reducer
+export default usersSlice.reducer;

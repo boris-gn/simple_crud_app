@@ -10,7 +10,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(fetchUsers());
-  }, [dispatch]);
+  }, []);
 
   if (status === "loading") return <div>Loading...</div>;
   if (status === "failed") return <div>Error loading posts</div>;
@@ -29,7 +29,7 @@ const Home = () => {
               </h5>
             </div>
             <p className="block text-slate-600 leading-normal font-light mb-4 flex items-center gap-2">
-              <svg viewBox="0 0 24 24" strokeWidth="1.5" fill="none" className="h-6 w-6 text-slate-600" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.75 5.25L3 6V18L3.75 18.75H20.25L21 18V6L20.25 5.25H3.75ZM4.5 7.6955V17.25H19.5V7.69525L11.9999 14.5136L4.5 7.6955ZM18.3099 6.75H5.68986L11.9999 12.4864L18.3099 6.75Z" fill="#080341"></path> </g></svg>
+              <svg viewBox="0 0 24 24" strokeWidth="1.5" fill="none" className="h-6 w-6 text-slate-600" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fillRule="evenodd" clip-rule="evenodd" d="M3.75 5.25L3 6V18L3.75 18.75H20.25L21 18V6L20.25 5.25H3.75ZM4.5 7.6955V17.25H19.5V7.69525L11.9999 14.5136L4.5 7.6955ZM18.3099 6.75H5.68986L11.9999 12.4864L18.3099 6.75Z" fill="#080341"></path> </g></svg>
               {user.email}
             </p>
             <p className="block text-slate-600 leading-normal font-light mb-4 flex items-center gap-2">

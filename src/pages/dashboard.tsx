@@ -18,7 +18,7 @@ const DashboardPage = () => {
 
   useEffect(() => {
     dispatch(fetchComments());
-  }, [dispatch]);
+  }, []);
 
   const handleAddComment = () => {
     if (newComment.trim()) {

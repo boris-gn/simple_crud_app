@@ -1,6 +1,6 @@
+import React, { useState, useCallback } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
-import { useState } from "react";
 import { z } from "zod";
 
 const loginSchema = z.object({
@@ -14,7 +14,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState<{ username?: string; password?: string; general?: string }>({});
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
     setErrors({});
 
@@ -42,7 +42,7 @@ const Login = () => {
         });
       }
     }
-  };
+  }, [username, password, router]);
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
