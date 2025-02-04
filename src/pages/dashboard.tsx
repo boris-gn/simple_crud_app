@@ -6,7 +6,7 @@ import {
   addComment, 
   updateComment, 
   deleteComment 
-} from "@/store/commentsSlice";
+} from "@/store/slices/commentsSlice";
 import { withAuth } from "@/components/Layout";
 import { Comment } from "@/types";
 

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "@/store/store";
-import { fetchUsers } from "@/store/usersSlice";
+import { fetchUsers } from "@/store/slices/usersSlice";
 import { withAuth } from "@/components/Layout";
 
 const Home = () => {

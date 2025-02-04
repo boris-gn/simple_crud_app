@@ -4,7 +4,7 @@ import {
   addCommentApi,
   updateCommentApi,
   deleteCommentApi,
-} from "./api";
+} from "../api";
 
 import { CommentType, Comment, CommentPayload, UpdatePayload } from "@/types";
 
@@ -51,7 +51,7 @@ const commentsSlice = createSlice({
       })
       .addCase(fetchComments.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.comments = action.payload;
+        state.comments = action.payload as Comment[];
       })
       .addCase(fetchComments.rejected, (state, action) => {
         state.status = "failed";

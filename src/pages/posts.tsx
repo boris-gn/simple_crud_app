@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "@/store/store";
-import { fetchPosts } from "@/store/postsSlice";
+import { fetchPosts } from "@/store/slices/postsSlice";
 import { withAuth } from "@/components/Layout";
 
 const Posts = () => {
